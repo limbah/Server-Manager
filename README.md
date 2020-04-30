@@ -3,7 +3,7 @@
 A little dashboard in PHP for manage your server. without data-base
 
 ## Requirements
- - Unix System
+ - Web server on Unix system
  - PHP
  - Python
  - Screen ```apt install screen```
