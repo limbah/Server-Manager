@@ -1,0 +1,33 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.speedtest {
+    width: 500px;
+    height: 200px;
+}
+
+.mcs {
+    width: 350px;
+    height: 50px;
+}
+
+.logout {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 992px) {
+    .speedtest {
+        width: 300px;
+        height: 200px;
+    }
+    
+    .logout {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Limbah-Server"
+AuthUserFile /var/www/.htpasswd
+require valid-user
