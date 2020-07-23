@@ -16,6 +16,7 @@
 				<a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Server</a>
 				<ul class="right">
 					<li><a href="logout.php"><i class="material-icons">logout</i></a></li>
+				</ul>
 			</div>
 		</nav>
         <?php
