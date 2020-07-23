@@ -4,7 +4,7 @@ A little dashboard in PHP for manage your server. without data-base
 You can view a demo version here: https://server-manager.limbah.dev/
 
 ## Requirements
- - Web server on Unix system
+ - Apache on Unix system
  - PHP
  - Python
  - Screen ```apt install screen```
