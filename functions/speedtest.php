@@ -14,6 +14,6 @@
 		exit;
 	} else {
 		echo 'error';
-		header ('location: ../dashboard.php');
+		header ('location: ../dashboard');
 	}
 ?>
