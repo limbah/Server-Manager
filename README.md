@@ -12,7 +12,7 @@ You can view a demo version here: https://server-manager.limbah.dev/
 ## Usage
 Configuration and installation is not yet easy and intuitive.  
 You can view the [wiki](https://github.com/limbah/Server-Manager/wiki) for some help.  
-A configuration file is coming soon..
+The configuration file is located here ```cfg/config.ini```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
