@@ -1,7 +1,7 @@
 # Server-Manager
 
 A little dashboard in PHP for manage your server. without data-base  
-You can view a demo version here: https://server-manager.limbah.dev/
+You can view a demo version here: https://server-manager.limbah.dev/   
 Project link: https://github.com/users/limbah/projects/1
 
 ## Requirements
