@@ -6,7 +6,7 @@
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<meta name="author" content="Limbah">
-		<meta name="description" content="Login page for limbah's services.">
+		<meta name="description" content="Login page for server.">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -49,7 +49,7 @@
 		<footer style="position: absolute; bottom: 0; left: 0; right: 0; background: #40424a; padding: 20px 0;">
 			<div style="text-align: center;">
 				<div class="copyright" style="color: white;">
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made by <a href="#">Limbah</a>
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made by <a href="https://github.com/limbah">Limbah</a>
 				</div>
 			</div>
 		</footer>
