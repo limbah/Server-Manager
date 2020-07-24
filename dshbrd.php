@@ -1,8 +1,20 @@
 <!DOCTYPE html>
+<?php
+	include('info.php');
+	$userinfo = array(
+        $admin1 => $root1,
+        $user1 => $pass1,
+        $access => $access
+    );
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-		<title>Server | Dashboard</title>
+		<title>
+            <?php
+                echo $host . ' | Dashboard';
+            ?> 
+        </title>
 		<meta name="robots" content="noindex">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
@@ -13,7 +25,12 @@
     <body>	
 		<nav>
 			<div class="nav-wrapper blue">
-				<a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Server</a>
+				<ul class="left">
+					<li><a href="config"><i class="material-icons">keyboard_arrow_left</i></a></li>
+				</ul>
+				<a href="#!" class="brand-logo"><i class="material-icons">cloud</i><?php
+                echo $host;
+                ?></a>
 				<ul class="right">
 					<li><a href="logout.php"><i class="material-icons">logout</i></a></li>
 				</ul>
@@ -23,14 +40,22 @@
 			session_start();
 			$_SESSION['log'];
 
-			if ($_SESSION['log'] == "useradmin"){
+			if ($_SESSION['log'] == "admin"){
 		?>
 				<!--admin-->
 					<div class="container">
+						
+						<div class="right">
+							<?php
+							echo "<p>Hello <em>$admin1</em><p>";
+							?>
+						</div>
+						
 						<h4>Administration</h4>
 						<form method="post"> 
-							<a class="blue btn waves-effect waves-light-blue" href="http://stats.yourdomain.com" target="_blank">Stats</a>
+							<a class="blue btn waves-effect waves-light-blue" href="https://stats.yourdomain.com" target="_blank">Stats</a>
 							<input type="submit" name="btn1" value="Speedtest" class="blue btn waves-effect waves-light-blue"/>
+							<a class="grey btn waves-effect waves-light-grey" href="config">Configuration</a>
 						</form>
 						<?php
 							if(isset($_POST['btn1'])) { 
@@ -41,7 +66,7 @@
 						?>
 						<h4>Game servers</h4>
 						<form method="post">
-							<a class="blue btn waves-effect waves-light-blue" href="http://panel.yourdomain.com" target="_blank">Game Panel</a>
+							<a class="blue btn waves-effect waves-light-blue" href="https://game.panel.com" target="_blank">Game Panel</a>
 							<input type="submit" name="mc1r" value="Start" class="green btn waves-effect waves-light-blue"/>
 							<input type="submit" name="mc1x" value="Stop" class="red btn waves-effect waves-light-blue"/>
 							<input type="submit" name="mc1s" value="Status" class="grey btn waves-effect waves-light-blue"/>
@@ -59,20 +84,21 @@
 						?>
 
 						<h4>Informations</h4>
-						<p>OS: X</p>
-						<p>CPU: X Cores</p>
-						<p>RAM: XX Go</p>
-						<p>SSD: XXX Go</p>
-						<p>Bandwidth: XXXMbit/s</p>
-						<p>Static IP: XXX.XXX.XXX.XXX</p>
-						<form method="post">
-							<a class="blue btn waves-effect waves-light-blue" href="https://yourhost.com/" target="_blank">Host Panel</a>
-						</form>
-
+						<?php
+							echo "<p>OS: $os</p>";
+							echo "<p>CPU: $cpu</p>";
+							echo "<p>RAM: $ram</p>";
+							echo "<p>SSD: $hdd</p>";
+							echo "<p>Bandwidth: $bandwidth</p>";
+							echo "<p>Static IP: $ip</p>";
+						?>
+							<form method="post">
+								<a class="blue btn waves-effect waves-light-blue" href="https://yourhost.com/" target="_blank">Host Panel</a>
+							</form>
 					</div>
 				<!--admin-->
 		<?php
-			} elseif ($_SESSION['log'] == "useruser"){
+			} elseif ($_SESSION['log'] == "user"){
 		?>
 				<!--USER-->
 					<div class="container">
@@ -81,8 +107,8 @@
 				<!--USER-->
 		<?php
 			} else {
-				echo '<div class="container"><h5>Incorrect email or password</5></div>';
-				echo '<div class="logout"><a href="logout.php">Retry</a></div>';
+				echo '<div class="container"><h5>Incorrect email or password</h5></div>';
+				echo '<div class="logout"><a href="logout.php" selected>Retry</a></div>';
 			}
 		?>
     </body>

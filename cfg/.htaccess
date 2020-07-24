@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Server-Manager"
+AuthUserFile /var/www/.htpasswd
+require valid-user

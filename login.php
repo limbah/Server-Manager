@@ -1,20 +1,19 @@
 <?php
 	session_start();
-	$_SESSION['log'];
+    $_SESSION['log'];
+    include('info.php');
 
-    if ($_SESSION['log'] == "useradmin" || 
-    isset($_POST['email']) && $_POST['email'] == "admin@exemple.com" && isset($_POST['pass']) && $_POST['pass'] == "1234"){
-        $_SESSION['log'] = "useradmin";
+    $userinfo = array(
+        $admin1 => $root1,
+        $user1 => $pass1,
+        $access => $access
+    );
+
+    if (isset($_POST['username']) && $userinfo[$_POST['username']] == $_POST['password']){
+        $_SESSION['log'] = $access;
             
         header ('location: dashboard');
-    }
-    elseif ($_SESSION['log'] == "useruser" ||
-    isset($_POST['email']) && $_POST['email'] == "user@exemple.com" && isset($_POST['pass']) && $_POST['pass'] == "0000"){
-        $_SESSION['log'] = "useruser";
-
-        header ('location: dashboard');
-    }
-    else {
+    } else {
         $_SESSION['log'] = "anonymous";
 
         header ('location: dashboard');

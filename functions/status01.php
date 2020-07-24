@@ -2,7 +2,7 @@
 	session_start();
 	$_SESSION['log'];
 
-	if ($_SESSION['log'] == "useradmin"){
+	if ($_SESSION['log'] == "admin"){
         include 'upcheck.php';
 
         if(UpCheck() == ON){

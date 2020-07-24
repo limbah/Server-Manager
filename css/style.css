@@ -3,6 +3,10 @@ html, body {
     height: 100%;
 }
 
+em {
+    color: #0a3e69;
+}
+
 .speedtest {
     width: 500px;
     height: 200px;

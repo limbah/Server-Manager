@@ -2,7 +2,7 @@
 	session_start();
 	$_SESSION['log'];
 
-	if ($_SESSION['log'] == "useradmin"){
+	if ($_SESSION['log'] == "admin"){
         function UpCheck() 
         {
             $file = "scripts/status";

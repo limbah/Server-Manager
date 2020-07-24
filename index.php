@@ -1,20 +1,29 @@
 <!DOCTYPE html>
+<?php
+	include('info.php');
+?>
 <html lang="en">
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<meta name="author" content="Limbah">
-		<meta name="description" content="Login page for server">
+		<meta name="description" content="Login page for limbah's services.">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link rel="icon" type="image/png" sizes="96x96" href="img/cloud.png">
 
-        <title>Server | Login</title>
+		<title>
+            <?php
+                echo $host;
+            ?> 
+        </title>
     </head>
 	<body>
 		<nav>
 			<div class="nav-wrapper blue">
-			<a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Server</a>
+			<a href="#!" class="brand-logo left"><i class="material-icons">cloud</i><?php
+                echo $host;
+                ?></a>
 			</div>
 		</nav>
 		<div class="container section no-pad-bot" id="index-banner">
@@ -22,13 +31,13 @@
 			<form class="col s12 container" method="post" action="login.php">
 				<div class="input-field col s3">
 					<i class="material-icons prefix">mail</i>
-					<input id="mail" type="email" class="validate" name="email" required>
+					<input id="mail" type="text" class="validate" name="username" required>
 					<label for="mail">E-mail</label>
 				</div>
 
 				<div class="input-field col s3">
 					<i class="material-icons prefix">lock</i>
-					<input id="password" type="password" class="validate" name="pass" required>
+					<input id="password" type="password" class="validate" name="password" required>
 					<label for="password">Password</label>
 				</div>
 
@@ -40,7 +49,7 @@
 		<footer style="position: absolute; bottom: 0; left: 0; right: 0; background: #40424a; padding: 20px 0;">
 			<div style="text-align: center;">
 				<div class="copyright" style="color: white;">
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made by <a href="https://github.com/limbah">Limbah</a>
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made by <a href="#">Limbah</a>
 				</div>
 			</div>
 		</footer>
