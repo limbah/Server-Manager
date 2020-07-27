@@ -40,63 +40,91 @@
 			if ($_SESSION['log'] == "admin"){
 		?>
 				<!--admin-->
-					<div class="container">
+                <div class="container">
+					<div class="row">
                         <h3>Configuration</h3>
 
-                        <h5>Config File</h5>
-						<form method="post"> 
-                            <input type="submit" name="dl1" value="Download" class="grey btn"/>
-                            <input type="submit" name="rst" value="Reset" class="red btn"/>
-						</form>
-                        <?php
-                            if(isset($_POST['dl1'])){
-                                header('location: functions/download.php');
-                            }
-                            if(isset($_POST['rst'])){
-                                echo '<iframe src="functions/reset.php" class="mcs"></iframe>';
-                            }
-                        ?>
-
-                        <h5>Upload your config file</h5>
-                        <form class="col s12" action="" method="POST" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="file-field input-field">
-                                    <div class="btn blue">
-                                        <span>Browse</span>
-                                        <input type="file"/ name="image">
-                                    </div>
-                                    
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="config.ini"/>
-                                    </div>
-                                </div>
-                                <input class="btn green" type="submit" label="Upload"/>
-                            </div>
+                        <div class="col s6">
+                            <h5>Config File</h5>
+                            <form method="post"> 
+                                <input type="submit" name="dl1" value="Download" class="grey btn"/>
+                                <label>config.ini</label>
+                                <br />
+                                <input type="submit" name="rst" value="Reset" class="red btn"/>
+                            </form>
                             <?php
-                                if(isset($_FILES['image'])){
-                                    $errors= array();
-                                    $file_name = $_FILES['image']['name'];
-                                    $file_size =$_FILES['image']['size'];
-                                    $file_tmp =$_FILES['image']['tmp_name'];
-                                    $file_type=$_FILES['image']['type'];
-                                    $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-                                    $extensions= array("ini");
-
-                                    if(in_array($file_ext, $extensions)=== false){
-                                        $errors[]="extension not allowed, please choose a <em>INI</em> file.";
-                                    }
-                                    if($file_size > 2097152){
-                                        $errors[]='File size must be under 2 Mb';
-                                    }
-                                    if(empty($errors)==true){
-                                        move_uploaded_file($file_tmp, "cfg/" . $file_name);
-                                        echo '<div class="center">Success !</div>';
-                                    }else{
-                                        print_r($errors);
-                                    }
+                                if (isset($_POST['dl1'])){
+                                    header('location: functions/download.php');
+                                }
+                                if (isset($_POST['rst'])){
+                                    echo '<iframe src="functions/reset.php" class="mcs"></iframe>';
                                 }
                             ?>
-                        </form>
+                        </div>
+                        <div class="col s6">
+                            <h5>Upload your config file</h5>
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="file-field input-field">
+                                        <div class="btn blue">
+                                            <span>Browse</span>
+                                            <input type="file"/ name="image">
+                                        </div>
+                                        
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text" placeholder="config.ini"/>
+                                        </div>
+                                        <input class="btn green" type="submit" label="Upload"/>
+                                    </div>
+                                </div>
+                                <?php
+                                    if (isset($_FILES['image'])){
+                                        $errors = array();
+                                        $file_name = $_FILES['image']['name'];
+                                        $file_size = $_FILES['image']['size'];
+                                        $file_tmp = $_FILES['image']['tmp_name'];
+                                        $file_type = $_FILES['image']['type'];
+                                        $file_ext = strtolower(end(explode('.',$_FILES['image']['name'])));
+                                        $extensions = array("ini");
+
+                                        if (in_array($file_ext, $extensions)=== false){
+                                            $errors[]="extension not allowed, please choose a <em>INI</em> file.";
+                                        }
+                                        if ($file_size > 2097152){
+                                            $errors[]='File size must be under 2 Mb';
+                                        }
+                                        if (empty($errors)==true){
+                                            move_uploaded_file($file_tmp, "cfg/" . $file_name);
+                                            echo '<div class="center">Success !</div>';
+                                        } else {
+                                            print_r($errors);
+                                        }
+                                    }
+                                ?>
+                            </form>
+                        </div>
+                        <div class="col s12">
+                            <h5>Edit config file</h5>
+                            <?php
+                                $url = '#';
+                                $file = 'cfg/config.ini';
+
+                                if (isset($_POST['text']))
+                                {
+                                    file_put_contents($file, $_POST['text']);
+
+                                    header(sprintf('Location: %s', $url));
+                                    printf('<a href="%s">Moved</a>.', htmlspecialchars($url));
+                                    exit();
+                                }
+                                $text = file_get_contents($file);
+                            ?>
+                            <form action="" method="post">
+                                <textarea name="text" class="materialize-textarea"><?php echo htmlspecialchars($text) ?></textarea>
+                                <input type="submit" class="btn waves-effect waves-light"/>
+                                <input type="reset" class="red btn waves-effect"/>
+                            </form>
+                        </div>
                     </div>
                 <!--admin-->
         <?php
