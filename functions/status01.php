@@ -2,7 +2,7 @@
 	session_start();
 	$_SESSION['log'];
 
-	if ($_SESSION['log'] == "admin"){
+	if ($_SESSION['log'] == "admin@exemple.com"){
         include 'upcheck.php';
 
         if(UpCheck() == ON){

@@ -40,7 +40,7 @@
 			session_start();
 			$_SESSION['log'];
 
-			if ($_SESSION['log'] == "admin"){
+			if ($_SESSION['log'] == "admin@exemple.com"){
 		?>
 				<!--admin-->
 					<div class="container">
@@ -98,7 +98,7 @@
 					</div>
 				<!--admin-->
 		<?php
-			} elseif ($_SESSION['log'] == "user"){
+			} elseif ($_SESSION['log'] == "user@exemple.com"){
 		?>
 				<!--USER-->
 					<div class="container">

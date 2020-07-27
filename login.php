@@ -5,12 +5,11 @@
 
     $userinfo = array(
         $admin1 => $root1,
-        $user1 => $pass1,
-        $access => $access
+        $user1 => $pass1
     );
 
     if (isset($_POST['username']) && $userinfo[$_POST['username']] == $_POST['password']){
-        $_SESSION['log'] = $access;
+        $_SESSION['log'] = $_POST['username'];
             
         header ('location: dashboard');
     } else {

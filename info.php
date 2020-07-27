@@ -15,7 +15,6 @@
     // USER //
     $admin1 = $ini['admin'];
     $root1 = $ini['passadmin'];
-    $access = $ini['access'];
 
     $user1 = $ini['user1'];
     $pass1 = $ini['pass1'];

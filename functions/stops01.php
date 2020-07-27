@@ -2,7 +2,7 @@
 	session_start();
 	$_SESSION['log'];
 
-	if ($_SESSION['log'] == "admin"){
+	if ($_SESSION['log'] == "admin@exemple.com"){
         $myfile = fopen("scripts/status", "w") or die("Unable to open file!");
         $txt = "FALSE";
         fwrite($myfile, $txt);
