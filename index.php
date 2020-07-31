@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
 	include('info.php');
+	if (isset($_SESSION['log']) == $admin1 || $_SESSION['log'] == $user1){
+		header ('location: dashboard');
+	}
 ?>
 <html lang="en">
     <head>
